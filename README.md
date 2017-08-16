@@ -1,2 +1,2 @@
 # mx
-another trial for the better matrix library
+another trial for the better matrix library.
