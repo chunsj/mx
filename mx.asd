@@ -9,4 +9,5 @@
   :depends-on ("org.middleangle.foreign-numeric-vector"
                "org.middleangle.cl-blapack")
   :components ((:file "package")
-               (:module base :components ((:file "matrix")))))
+               (:module base :components ((:file "matrix")
+                                          (:file "opers")))))
