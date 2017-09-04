@@ -13,4 +13,6 @@
            #:$rn
            #:$ones
            #:$zeros
-           #:$gemm))
+           #:$gemm
+           #:$axpy
+           #:$scal))
