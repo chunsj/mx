@@ -33,3 +33,12 @@
   (let ((n (fnv-length (%nv x))))
     (%sscal n alpha (%nv x) incx)
     x))
+
+(defun $wxpb (w x b)
+  ;; XXX b should be broadcasted
+  ;; XXX gemm should use predefined target location of c
+  ($axpy ($gemm w x) b))
+
+(defun $wtz (w z)
+  ;; XXX should use predefined target location of c
+  ($gemm w z :transa T))
