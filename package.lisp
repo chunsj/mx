@@ -1,3 +1,11 @@
 (defpackage :mx
   (:use #:common-lisp
-        #:cffi))
+        #:fnv
+        #:cl-blapack)
+  (:export #:mx
+           #:$m
+           #:$nrow
+           #:$ncol
+           #:$
+           #:$transpose
+           #:$transpose!))

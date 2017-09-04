@@ -6,5 +6,7 @@
   :license "GPL3"
   :description "my own matrix library for deep learning"
   :long-description "trying to make a better library for me"
-  :depends-on (:cffi)
-  :components ((:file "package")))
+  :depends-on ("org.middleangle.foreign-numeric-vector"
+               "org.middleangle.cl-blapack")
+  :components ((:file "package")
+               (:module base :components ((:file "matrix")))))
