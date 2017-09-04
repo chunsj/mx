@@ -6,6 +6,8 @@
 (defmacro vrf (v i) `(fnv-float-ref ,v ,i))
 ;; end of type change
 
+(defparameter *print-maxn* 8)
+
 ;; column major order
 (defclass MX ()
   ((fnv :initarg :fnv :accessor %nv :initform nil)
@@ -18,8 +20,6 @@
 
 (defmethod $nrow ((m MX)) (if (%tr m) (%nc m) (%nr m)))
 (defmethod $ncol ((m MX)) (if (%tr m) (%nr m) (%nc m)))
-
-(defparameter *print-maxn* 8)
 
 (defmacro mx (vs nr nc) `(make-instance 'MX :fnv ,vs :nr ,nr :nc ,nc))
 
