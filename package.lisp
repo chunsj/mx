@@ -9,4 +9,8 @@
            #:$
            #:$transpose
            #:$transpose!
+           #:$ru
+           #:$rn
+           #:$ones
+           #:$zeros
            #:$mm))

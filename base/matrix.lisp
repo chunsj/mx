@@ -177,3 +177,34 @@
 (defun $transpose (m)
   (let ((nm ($m m)))
     ($transpose! nm)))
+
+(defun rn (n)
+  (loop :for i :from 0 :below n :collect (random 1.0)))
+
+(defun $ru (&optional d0 d1)
+  (cond ((and (eq d0 nil) (eq d1 nil)) ($m (random 1.0) 1 1))
+        ((and d0 (eq d1 nil)) ($m (rn d0) d0 1))
+        ((and d0 d1) ($m (rn (* d0 d1)) d0 d1))))
+
+(defun random-normal ()
+  (coerce (* (sqrt (* -2.0 (log (- 1.0 (random 1.0)))))
+             (cos (* 2.0 PI (random 1.0))))
+          'float))
+
+(defun rnn (n)
+  (loop :for i :from 0 :below n :collect (random-normal)))
+
+(defun $rn (&optional d0 d1)
+  (cond ((and (eq d0 nil) (eq d1 nil)) ($m (random-normal) 1 1))
+        ((and d0 (eq d1 nil)) ($m (rnn d0) d0 1))
+        ((and d0 d1) ($m (rnn (* d0 d1)) d0 d1))))
+
+(defun $ones (&optional d0 d1)
+  (cond ((and (eq d0 nil) (eq d1 nil)) ($m 1 1 1))
+        ((and d0 (eq d1 nil)) ($m (loop :for i :from 0 :below d0 :collect 1.0) d0 1))
+        ((and d0 d1) ($m (loop :for i :from 0 :below (* d0 d1) :collect 1.0) d0 d1))))
+
+(defun $zeros (&optional d0 d1)
+  (cond ((and (eq d0 nil) (eq d1 nil)) ($m 0 1 1))
+        ((and d0 (eq d1 nil)) ($m (loop :for i :from 0 :below d0 :collect 0.0) d0 1))
+        ((and d0 d1) ($m (loop :for i :from 0 :below (* d0 d1) :collect 0.0) d0 d1))))
